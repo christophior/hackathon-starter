@@ -1,0 +1,17 @@
+{?messages.errors}
+    <div class="alert alert-danger fade in">
+        <button type="button" data-dismiss="alert" class="close"><i class="fa fa-times-circle-o"></i></button>
+    </div>
+{/messages.errors}
+
+{?messages.info}
+    <div class="alert alert-info fade in">
+        <button type="button" data-dismiss="alert" class="close"><i class="fa fa-times-circle-o"></i></button>
+    </div>
+{/messages.info}
+
+{?messages.success}
+    <div class="alert alert-success fade in">
+        <button type="button" data-dismiss="alert" class="close"><i class="fa fa-times-circle-o"></i></button>
+    </div>
+{/messages.success}

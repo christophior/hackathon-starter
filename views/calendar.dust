@@ -1,0 +1,6 @@
+{>"layout"/}
+
+{<content}
+    <h1>Calendar</h1>
+    <div id="calendar"></div>
+{/content}
