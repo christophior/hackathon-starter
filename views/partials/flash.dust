@@ -1,17 +1,32 @@
 {?messages.errors}
     <div class="alert alert-danger fade in">
-        <button type="button" data-dismiss="alert" class="close"><i class="fa fa-times-circle-o"></i></button>
+        <button type="button" data-dismiss="alert" class="close">
+            <i class="fa fa-times-circle-o"></i>
+        </button>
+        {#messages.errors}
+            <div>{msg}</div>
+        {/messages.errors}
     </div>
 {/messages.errors}
 
 {?messages.info}
     <div class="alert alert-info fade in">
-        <button type="button" data-dismiss="alert" class="close"><i class="fa fa-times-circle-o"></i></button>
+        <button type="button" data-dismiss="alert" class="close">
+            <i class="fa fa-times-circle-o"></i>
+        </button>
+        {#messages.info}
+            <div>{msg}</div>
+        {/messages.info}
     </div>
 {/messages.info}
 
 {?messages.success}
     <div class="alert alert-success fade in">
-        <button type="button" data-dismiss="alert" class="close"><i class="fa fa-times-circle-o"></i></button>
+        <button type="button" data-dismiss="alert" class="close">
+            <i class="fa fa-times-circle-o"></i>
+        </button>
+        {#messages.success}
+            <div>{msg}</div>
+        {/messages.success}
     </div>
 {/messages.success}
