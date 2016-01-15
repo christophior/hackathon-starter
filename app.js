@@ -21,6 +21,7 @@ var expressValidator = require('express-validator');
 var sass = require('node-sass-middleware');
 var _ = require('lodash');
 var dust = require('express-dustjs');
+dust.helper = require('dustjs-helpers');
 var routes = require('./config/routes');
 
 /**

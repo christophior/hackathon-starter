@@ -21,6 +21,8 @@
     "connect-mongo": "^1.1.0",
     "cookie-parser": "^1.4.1",
     "dotenv": "^1.2.0",
+    "dustjs-helpers": "^1.7.3",
+    "dustjs-linkedin": "^2.7.2",
     "errorhandler": "^1.4.2",
     "express": "^4.13.3",
     "express-dustjs": "^1.1.1",
