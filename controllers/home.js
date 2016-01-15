@@ -7,7 +7,3 @@ exports.index = function(req, res) {
     title: 'Home'
   });
 };
-
-exports.calendar = function(req, res) {
-  res.render('calendar', {});
-};
