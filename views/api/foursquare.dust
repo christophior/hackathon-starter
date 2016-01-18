@@ -1,0 +1,59 @@
+{>"layout"/}
+
+{<content}
+    <div class="page-header">
+        <h2><i class="fa fa-foursquare"></i>Foursquare API</h2>
+    </div>
+    <div class="btn-group btn-group-justified"><a href="https://developer.foursquare.com/start" target="_blank" class="btn btn-primary"><i class="fa fa-check-square-o"></i>Getting Started</a><a href="https://developer.foursquare.com/docs/explore" target="_blank" class="btn btn-primary"><i class="fa fa-laptop"></i>API Console</a><a href="https://developer.foursquare.com/docs/" target="_blank" class="btn btn-primary"><i class="fa fa-code-fork"></i>API Endpoints</a></div>
+    <h3 class="text-primary">Trending Venues</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th class="hidden-xs hidden-sm">Category</th>
+            <th class="hidden-xs">Checkins</th>
+            <th>Here Now</th>
+        </tr>
+        </thead>
+        <tbody>
+            {#trendingVenues.venues}
+                <tr>
+                    <td>{name}</td>
+                    <td class="hidden-xs hidden-sm">{categories[0].name}</td>
+                    <td class="hidden-xs">{stats.checkinsCount}</td>
+                    <td>{hereNow.count}</td>
+                </tr>
+            {/trendingVenues.venues}
+        </tbody>
+    </table>
+
+    <br/>
+    <h3 class="text-primary">Venue Detail</h3>
+
+    <p><img src="{venueDetail.venue.photos.groups[0].items[0].prefix}150x150{venueDetail.venue.photos.groups[0].items[0].suffix}"/></p>
+    <div class="label label-primary">{venueDetail.venue.name} ({venueDetail.venue.categories[0].shortName})</div>
+    <div class="label label-success">{venueDetail.venue.location.address}, {venueDetail.venue.location.city}, {venueDetail.venue.location.state}</div>
+    <div class="label label-warning">{venueDetail.venue.likes.count} likes, {venueDetail.venue.rating} rating</div>
+
+    <h3 class="text-primary">User Checkins</h3>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Checkins</th>
+        </tr>
+        </thead>
+        <tbody>
+            {#userCheckins.checkins.items}
+                <tr>
+                    <td>{venue.name}</td>
+                    <td>{venue.location.address}, {venue.location.city}, {venue.location.state}</td>
+                    <td>{venue.categories[0].shortName}</td>
+                    <td>{venue.stats.checkinsCount}</td>
+                </tr>
+            {/userCheckins.checkins.items}
+        </tbody>
+    </table>
+{/content}

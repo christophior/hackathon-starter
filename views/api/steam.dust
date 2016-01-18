@@ -1,0 +1,52 @@
+{>"layout"/}
+
+{<content}
+    <div class="page-header">
+        <h2><i class="fa fa-steam-square"></i>Steam Web API</h2>
+    </div>
+    <div class="btn-group btn-group-justified">
+        <a href="https://developer.valvesoftware.com/wiki/Steam_Web_API" target="_blank" class="btn btn-primary">
+            <i class="fa fa-check-square-o"></i>API Overview
+        </a>
+    </div>
+
+    <br/>
+
+    <div class="alert alert-info">
+        <h4>Steam ID</h4>
+        <p>Displaying public information for Steam ID: {playerSummary.steamid}.</p>
+    </div>
+
+    <h3>Profile Information</h3>
+
+    <div class="row">
+        <div class="col-sm-2"><img src="{playerSummary.avatarfull}" width="92" height="92"/></div>
+        <div class="col-sm-8"><span class="lead">{playerSummary.personaname}</span>
+            <div>Account since: {new Date(playerSummarytimecreated1000)}</div>
+            <div>Last Online: {new Date(playerSummarylastlogoff1000)}</div>
+            <div>Online Status:
+                {@if cond="{playerSummary.personastate} == 1"}
+                    <strong class="text-success"> Online</strong>
+                {:else}
+                    <strong class="text-danger"> Offline</strong>
+                {/if}
+            </div>
+        </div>
+    </div>
+
+    <h3>{playerAchievemments.gameName} Achievements</h3>
+    <ul class="lead list-unstyled">
+        {#playerAchievemments.achievements}
+            {?achieved}
+                <li class="text-success">{name}</li>
+            {/achieved}
+        {/playerAchievemments.achievements}
+    </ul>
+
+    <h3>Owned Games</h3>
+    {#ownedGames}
+        <a href="http://store.steampowered.com/app/{appid}/">
+            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{appid}/{img_logo_url}.jpg" width="92" class="thumbnail"/>
+        </a>
+    {/ownedGames}
+{/content}

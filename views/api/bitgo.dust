@@ -1,0 +1,89 @@
+{>"layout"/}
+
+{<content}
+    <div class="page-header">
+        <h2><i class="fa fa-bitcoin"></i>BitGo API</h2>
+    </div>
+    <div class="btn-group btn-group-justified">
+        <a href="https://test.bitgo.com/" target="_blank" class="btn btn-primary">
+            <i class="fa fa-check-square-o"></i>BitGo Test Env
+        </a>
+        <a href="https://test.bitgo.com/api" target="_blank" class="btn btn-primary">
+            <i class="fa fa-code"></i>API Documentation
+        </a>
+        <a href="https://test.bitgo.com/api/#access-tokens" target="_blank" class="btn btn-primary">
+            <i class="fa fa-gear"></i>Access Tokens
+        </a>
+    </div>
+    <br/>
+    <h3>Wallet Information</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Param</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+            {#walletParam}
+                <tr>
+                    <td>{Param}</td>
+                    <td>{Value}</td>
+                </tr>
+            {/walletParam}
+        </tbody>
+    </table>
+    <h3>New Receive Address</h3>
+    <p>
+        <a href="http://tpfaucet.appspot.com" target="_blank"> (Get coins from TestNet faucet)</a>
+    </p>
+
+    <h3>Wallet Transactions</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Transaction ID / Hash</th>
+                <th>Confirms</th>
+                <th>Entries</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#transactions}
+                <tr>
+                    <td>{date}</td>
+                    <td><a href="http://tbtc.blockr.io/tx/info/{id}" target="_blank">{id}</a></td>
+                    <td>{confirmations}</td>
+                    <td>
+                        <ul>
+                            {#transaction.entries}
+                                {@if cond="{account} == {wallet.id}"}
+                                    <b><li>{account}: {value}</li></b>
+                                {:else}
+                                    <li>{account}: {value}</li>
+                                {/if}
+                            {/transaction.entries}
+                        </ul>
+                    </td>
+                </tr>
+            {/transactions}
+        </tbody>
+    </table>
+
+    <br/>
+    <h3>Send coins from wallet</h3>
+    <p>
+    <form role="form" method="POST">
+        <input type="hidden" name="_csrf"/>
+        <div class="form-group">
+            <label class="control-label">Bitcoin Address</label>
+            <input type="text" name="address" autofocus="autofocus" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Amount in Satoshis</label>
+            <input type="text" name="amount" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-default"><i class="fa fa-location-arrow"></i>Send Bitcoin</button>
+    </form>
+    </p>
+{/content}
